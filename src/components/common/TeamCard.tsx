@@ -32,6 +32,7 @@ const TeamCard = ({
     age,
     teammates,
     paiementStatus,
+    paidAmount,
 }: TeamCardProps) => {
 
     const navigate = useNavigate();
@@ -106,13 +107,18 @@ const TeamCard = ({
                     minWidth={{ xs: "100%", sm: 300 }}
                     gap={1.5}
                     direction="row"
-                >
-                    <Circle sx={{ color: paiementStatus==="incomplete" ? "red" : "green" , width:"15px"}}  />
-                    <Typography fontSize={14} color={paiementStatus==="incomplete" ? "red" : "green"}>
-                        {paiementStatus==="incomplete" ? "waiting for payment" : "payment successful" }
+                >    
+                    <Circle sx={{ color: paiementStatus==="complete" ? "green" : (paidAmount===0 ?  "red" :"orange") , width:"15px"}}  />
+                    <Typography fontSize={14} color={paiementStatus==="complete" ? "green" : (paidAmount===0 ?  "red" :"orange")}>
+                        { (paiementStatus==="incomplete") ? (paidAmount===0 ?  "waiting for payment" :"payment incomplete") : "payment successful" }
+                    </Typography>
+                    <Circle sx={{ color: paiementStatus==="incomplete" ?  (paidAmount===0 ?  "red" :"orange"): "green" , width:"15px"}}  />
+                    <Typography fontSize={14} color={paiementStatus==="incomplete" ?  (paidAmount===0 ?  "red" :"orange"): "green"}>
+                        {paidAmount }  dt
                     </Typography>
                 </Stack>
-
+               
+                
             </Stack>
             <Stack
                 gap={2}

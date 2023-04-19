@@ -158,6 +158,7 @@ const AllTeams = () => {
                         age={team.age}
                         teammates={team.teammates}
                         paiementStatus={team.paiementStatus}
+                        paidAmount = {team.paidAmount}
                     />
                 ))}
             </Box>

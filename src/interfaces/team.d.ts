@@ -22,6 +22,7 @@ export interface TeamCardProps {
   age:string,
   teammates:[],
   paiementStatus: string,
+  paidAmount:number,
 }
 
 export interface InfoBarProps {
